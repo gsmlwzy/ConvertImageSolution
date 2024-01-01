@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="HexImage.SelectLabel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:HexImage"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:BoolReverse x:Key="BoolReverse"></local:BoolReverse>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.ColumnSpan="2"
+               Content="{Binding NoticeText, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl} }"
+               HorizontalAlignment="Right" VerticalAlignment="Center"
+               FontSize="18" FontFamily="Cascadia Code SemiBlod" FontWeight="Bold">
+        </Label>
+        <RadioButton Grid.Column="2" Margin="10 5 0 5" MinHeight="32"
+                     Content="True"
+                     IsChecked="{Binding Status, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                     Style="{StaticResource RadioButtonControlTemplate}">
+        </RadioButton>
+        <RadioButton Grid.Column="3" Margin="0 5 10 5"
+                     Content="False"
+                     IsChecked="{Binding Status, Converter={StaticResource BoolReverse}, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                     Style="{StaticResource RadioButtonControlTemplate}">
+        </RadioButton>
+
+    </Grid>
+</UserControl>
