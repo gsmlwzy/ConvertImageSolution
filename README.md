@@ -1,6 +1,7 @@
 # ConvertImageSolution
- Generate Hex File
-
+1. Generate commmon Hex File
+2. Convert RGB888 image to RGB565 for TFT-LCD
+3. For download Image to MCU flash conveniently, generate a hex file which include download address. 
 
 ## Hex File Format
 
